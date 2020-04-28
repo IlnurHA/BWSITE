@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><img src="{{ clan['image'] }}" class="clan_img"></p>
+<p class="clan_p">Clan Name:  {{ clan['name'] }}</p>
+<p class="clan_p">Clan Tag:  {{ clan['short_name'] }}</p>
+<p class="clan_p">Members {{ clan['size'] }}:</p>
+{% for user in clan['members'] %}
+<li>{{ user }}</li>
+{% endfor %}
+{% if clan['is_leader'] %}
+<p>
+    <a href="/change_img_src/clan{{ clan['id'] }}" class="btn btn-primary">Change Clan Ico</a>
+    <a href="/clan/leave/{{ clan['id'] }}" class="btn btn-danger">Delete Clan</a>
+</p>
+{% elif clan['is_joined'] %}
+<p>
+    <a href="/clan/leave/{{ clan['id'] }}" class="btn btn-danger">Leave Clan</a>
+</p>
+{% else %}
+<p>
+    <a href="/clan/join/{{ clan['id'] }}" class="btn btn-success">Join Clan</a>
+</p>
+{% endif %}
+{% endblock %}

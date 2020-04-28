@@ -1,0 +1,11 @@
+!Global Patch BlockWars 2.0:
+#Graphics
+@New Tileset:
+(
+^https://cdn.discordapp.com/attachments/701343081655697449/701867871155912814/grass.png
+^https://cdn.discordapp.com/attachments/701343081655697449/701867884732874903/forest.png
+^https://cdn.discordapp.com/attachments/701343081655697449/701867903116378223/mountain.png
+)
+@Added free camera
+@Graphics maybe set in updated settings
+~https://cdn.discordapp.com/attachments/701343081655697449/701868443800174652/web_bg.png

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<li>{{ user['name'] }}</li>
+<li>{{ user['email'] }}</li>
+{% if user['is_current'] %}
+<a href="/change_password" class="btn btn-primary">Сменить пароль</a>
+{% endif %}
+{% endblock %}

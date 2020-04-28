@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lobby {{ args['lobby_leader'] }}</h1>
+<ul>
+    <h2>Lobby Members:</h2>
+    {% for item in members %}
+    <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+<ul>
+    {% if args['is_started'] %}
+    <h2>Started</h2>
+    {% elif args['is_joined'] %}
+    <h2>You're already in lobby</h2>
+    {% else %}
+    <h2>You can join the lobby</h2>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+    {% if current_user.get_id() == args['leader_id'] %}
+    <p>
+        <a href="/lobby/delete/{{ args['id'] }}" class="btn btn-danger">Delete</a>
+        <a href="/lobby/leave/{{ args['id'] }}" class="btn btn-warning">Leave</a>
+    </p>
+    <p>
+        <a href="/soon" class="btn btn-warning">Start Game</a>
+    </p>
+    {% elif args['is_joined'] %}
+    <p>
+        <a href="/lobby/leave/{{ args['id'] }}" class="btn btn-warning">Leave</a>
+    </p>
+    {% else %}
+    <p>
+        <a href="/lobby/join/{{ args['id'] }}" class="btn btn-success">Join</a>
+    </p>
+    {% endif %}
+    {% endif %}
+</ul>
+{% endblock %}

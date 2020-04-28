@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <style>
+        p{
+            font-size: 15px;
+            color: #ffffff;
+        }
+		h1 {
+		    font-size: 30px;
+		    color: #ffffff;
+		}
+		li {
+		    color: #ffffff;
+		}
+		h2 {
+		    font-size: 30px;
+		    color: #ffffff;
+		}
+		.basetxt {
+		    color: #ffffff;
+		}
+		h3 {
+			margin-left: 50px;
+		}
+		.img {
+		    transition: transform 1s ease;
+		    margin-left: 25%;
+			width: 50%;
+			height: 50%;
+		}
+		.bu:hover{
+		    transform: scaleX(1.2) scaleY(1.2);
+		}
+
+		.header-bg {
+            background: url(https://cdn.discordapp.com/attachments/701343081655697449/701864551695515749/headrew.png) repeat-x center bottom;
+            height: 86px;
+        }
+        .bubw {
+            background: url(https://cdn.discordapp.com/attachments/701343081655697449/701400755193511947/button-nonclicked.png);
+            width: 250px;
+            height: 50px;
+            font-size: 23px;
+            color: #000000;
+            margin-top: 15px;
+            margin-left: 5px;
+            transition: transform 1s ease-out;
+        }
+        .bubw:hover{
+            background: url(https://cdn.discordapp.com/attachments/701343081655697449/701400753008410644/button-clicked.png);
+            color: #ffffff;
+            transform: scaleX(1.05) scaleY(1.05);
+        }
+        .logo{
+            width: 50px;
+            height: 50px;
+            margin-top: 15px;
+            margin-left: 5px;
+        }
+        .patch_head{
+            font-size: 50px;
+            color: #ffffff;
+
+            word-wrap: break-word;
+            margin-right: 15%;
+            margin-left: 15%;
+        }
+        .patch_mhead{
+            font-size: 30px;
+            color: #ffffff;
+
+            word-wrap: break-word;
+            margin-right: 15%;
+            margin-left: 15%;
+        }
+        .patch_txt{
+            font-size: 20px;
+            color: #ffffff;
+            word-wrap: break-word;
+            margin-right: 15%;
+            margin-left: 15%;
+        }
+        .patch_img_resized{
+            margin-left: 25%;
+			width: 50%;
+			height: 50%;
+        }
+        .patch_img{
+            margin:  5px;
+        }
+        .mg{
+            margin: 10px;
+        }
+
+
+    </style>
+    <title>{{title}}</title>
+</head>
+<body background="https://cdn.discordapp.com/attachments/701343081655697449/701344340747878450/BG.jpg">
+<header>
+    <nav class="navbar navbar-light bg-light header-bg">
+        <a href="/"><img src="https://cdn.discordapp.com/attachments/701343081655697449/701415895028858920/logo2.png" class="logo"></a>
+        {% if current_user.is_authenticated %}
+
+        {% else %}
+
+        <p>
+            <a class="btn btn-secondary" href="/register">Sign up</a>
+            <a class="btn btn-success" href="/login">Sign in</a>
+        </p>
+        {% endif %}
+        {% if current_user.is_authenticated %}
+        <p>
+            <a class="btn btn-secondary" href="/patches">Patch note</a>
+            <a class="btn btn-secondary" href="/lobby_list">Lobby list</a>
+            <a class="btn btn-secondary" href="/clan_list">Clans</a>
+            <a class="btn btn-secondary" href="/account_info">Account</a>
+            <a class="btn btn-secondary" href="/logout">Logout</a>
+        </p>
+        {% endif %}
+
+    </nav>
+</header>
+<!-- Begin page content -->
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

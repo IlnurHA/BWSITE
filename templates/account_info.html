@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+<img src="{{ user['image'] }}" class="clan_img">
+{% if user['clan_tag'] %}
+<li>Nickname: {{ user['clan_tag'] }} | {{ user['name'] }}</li>
+{% else %}
+<li>Nickname: {{ user['name'] }}</li>
+{% endif %}
+<li>Email: {{ user['email'] }}</li>
+<li>Clan: {{ user['clan_name'] }}</li>
+<li>MMR: -empty</li>
+</p>
+{% if user['is_current'] %}
+<p>
+    <a href="/change_password" class="btn btn-primary">Сменить пароль</a>
+    <a href="/change_img_src/user" class="btn btn-primary">Сменить аватар </a>
+</p>
+{% endif %}
+{% endblock %}
